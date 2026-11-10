@@ -1,0 +1,32 @@
+{
+  "name": "odin-hashmap",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/pontificust/odin-hashMap#readme",
+  "bugs": {
+    "url": "https://github.com/pontificust/odin-hashMap/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pontificust/odin-hashMap.git"
+  },
+  "license": "ISC",
+  "author": "Aleksey Likhtinov",
+  "type": "module",
+  "main": "main.js",
+  "scripts": {
+    "test": "jest",
+    "lint": "eslint",
+    "fix": "eslint --fix",
+    "format": "prettier src/ --write"
+
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.29.7",
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.14.0",
+    "globals": "^17.14.0",
+    "jest": "^30.5.2",
+    "prettier": "3.9.10"
+  }
+}
