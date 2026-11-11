@@ -49,6 +49,19 @@ export class HashMap {
     }
     return false;
   }
+
+  remove(key) {
+    const targetList = this.buckets[this.hash(key)];
+    if (targetList) {
+        const idxToDelete = targetList.findIndex(node => node.value.key === key);
+
+        if(idxToDelete !== -1) {
+            targetList.removeAt(idxToDelete);
+            return true;
+        }
+    }
+    return false;
+  }
 }
 
 const hashMap = new HashMap();

@@ -107,4 +107,20 @@ describe("HashMap", () => {
       expect(hashMap.has("Sara")).toEqual(true);
     });
   });
+
+  describe("remove(key)", () => {
+    test("returns false if the key is not found", () => {
+      hashMap.set("raSa", "Konor");
+      hashMap.set("Sara", "Loyd");
+      expect(hashMap.remove("Karl")).toEqual(false);
+    });
+
+    test("returns true if the key is found and removed", () => {
+      hashMap.set("raSa", "Konor");
+      hashMap.set("Sara", "Loyd");
+      expect(hashMap.remove("Sara")).toEqual(true);
+      expect(hashMap.has("Sara")).toEqual(false);
+      expect(hashMap.has("raSa")).toEqual(true);
+    });
+  });
 });
