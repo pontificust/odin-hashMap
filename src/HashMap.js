@@ -107,6 +107,21 @@ export class HashMap {
       return acc;
     }, []);
   }
+
+  entries() {
+    return this.buckets.reduce((acc, list) => {
+      if (list) {
+        let i = 0;
+        let currentNode = list.firstNode;
+        while (i < list.size()) {
+          acc.push(currentNode.value);
+          i += 1;
+          currentNode = currentNode.nextNode;
+        }
+      }
+      return acc;
+    }, []);
+  }
 }
 
 const hashMap = new HashMap();
@@ -118,4 +133,3 @@ hashMap.set("Sara", "Loyd");
 hashMap.set("Marcus", "Cicero");
 hashMap.set("ramsuc", "Tullius");
 hashMap.set("Gaius", "Tullius");
-hashMap.keys();
