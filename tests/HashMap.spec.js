@@ -29,7 +29,7 @@ describe("HashMap", () => {
         "Vergilius",
         "Marcus Tullius Cicero",
         "Laelia",
-        "asdfasdfaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaafwseasfsdfaasdffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+        "asdfasdfaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaafwseasfsdfaasdffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
       ];
       inputs.forEach((input) => {
         const hashCode = hashMap.hash(input);
@@ -40,6 +40,43 @@ describe("HashMap", () => {
   });
 
   describe("set(key, value)", () => {
-    
+    test("adds a linkedList if the bucket is empty", () => {
+      hashMap.set("Sara", "Konor");
+      expect(
+        hashMap.buckets[hashMap.hash("Sara")].contains(
+          (node) => node.value.key === "Sara",
+        ),
+      ).toEqual(true);
+    });
+
+    test("updates the value of the node if input key equals current key", () => {
+      hashMap.set("Sara", "Konor");
+      expect(
+        hashMap.buckets[hashMap.hash("Sara")].find(
+          (node) => node.value.key === "Sara",
+        ).value.value,
+      ).toEqual("Konor");
+      hashMap.set("Sara", "Marta");
+      expect(
+        hashMap.buckets[hashMap.hash("Sara")].find(
+          (node) => node.value.key === "Sara",
+        ).value.value,
+      ).toEqual("Marta");
+    });
+
+    test("adds the node to the linkedList if the bucket is not empty", () => {
+      hashMap.set("Sara", "Konor");
+      hashMap.set("raSa", "Konor");
+      expect(
+        hashMap.buckets[hashMap.hash("Sara")].contains(
+          (node) => node.value.key === "Sara",
+        ),
+      ).toEqual(true);
+      expect(
+        hashMap.buckets[hashMap.hash("raSa")].contains(
+          (node) => node.value.key === "raSa",
+        ),
+      ).toEqual(true);
+    });
   });
 });
