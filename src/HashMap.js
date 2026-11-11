@@ -33,6 +33,14 @@ export class HashMap {
       this.buckets[index].append({ key, value });
     }
   }
+
+  get(key) {
+    const targetList = this.buckets[this.hash(key)];
+    if(targetList){
+        return targetList.find(node => node.value.key === key)?.value.value;
+    }
+    return;
+  }
 }
 
 const hashMap = new HashMap();

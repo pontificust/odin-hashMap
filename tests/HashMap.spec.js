@@ -79,4 +79,18 @@ describe("HashMap", () => {
       ).toEqual(true);
     });
   });
+
+  describe("get(key)", () => {
+    test("returns undefined if the key is not found", () => {
+      hashMap.set("raSa", "Konor");
+      hashMap.set("Sara", "Loyd");
+      expect(hashMap.get("Karl")).toBeUndefined();
+    });
+
+    test("returns value if the key is found", () => {
+      hashMap.set("raSa", "Konor");
+      hashMap.set("Sara", "Loyd");
+      expect(hashMap.get("Sara")).toEqual("Loyd");
+    });
+  });
 });
