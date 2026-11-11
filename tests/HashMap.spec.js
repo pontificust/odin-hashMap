@@ -155,4 +155,38 @@ describe("HashMap", () => {
       expect(hashMap.has("Gaius")).toEqual(false);
     });
   });
+
+  describe("keys()", () => {
+    test("produces the array of all keys of the hashMap", () => {
+      hashMap.set("raSa", "Konor");
+      hashMap.set("Sara", "Loyd");
+      hashMap.set("Marcus", "Cicero");
+      hashMap.set("ramsuc", "Tullius");
+      hashMap.set("Gaius", "Tullius");
+      expect(hashMap.keys()).toEqual(expect.arrayContaining([
+        "raSa",
+        "Sara",
+        "Marcus",
+        "ramsuc",
+        "Gaius",
+      ]));
+    });
+  });
+
+  describe("values()", () => {
+    test("produces the array of all values of the hashMap", () => {
+      hashMap.set("raSa", "Konor");
+      hashMap.set("Sara", "Loyd");
+      hashMap.set("Marcus", "Cicero");
+      hashMap.set("ramsuc", "Tullius");
+      hashMap.set("Gaius", "Tullius");
+      expect(hashMap.values()).toEqual(expect.arrayContaining([
+        "Konor",
+        "Loyd",
+        "Cicero",
+        "Tullius",
+        "Tullius",
+      ]));
+    });
+  });
 });

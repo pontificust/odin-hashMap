@@ -53,27 +53,59 @@ export class HashMap {
   remove(key) {
     const targetList = this.buckets[this.hash(key)];
     if (targetList) {
-        const idxToDelete = targetList.findIndex(node => node.value.key === key);
+      const idxToDelete = targetList.findIndex(
+        (node) => node.value.key === key,
+      );
 
-        if(idxToDelete !== -1) {
-            targetList.removeAt(idxToDelete);
-            return true;
-        }
+      if (idxToDelete !== -1) {
+        targetList.removeAt(idxToDelete);
+        return true;
+      }
     }
     return false;
   }
 
   length() {
     return this.buckets.reduce((acc, list) => {
-        if(!list) {
-            return acc;
-        }
-        return acc + list.size();
+      if (!list) {
+        return acc;
+      }
+      return acc + list.size();
     }, 0);
   }
 
   clear() {
-    this.buckets = new Array(this.capacity);
+    this.buckets = Array(this.capacity);
+  }
+
+  keys() {
+    return this.buckets.reduce((acc, list) => {
+      if (list) {
+        let i = 0;
+        let currentNode = list.firstNode;
+        while (i < list.size()) {
+          acc.push(currentNode.value.key);
+          i += 1;
+          currentNode = currentNode.nextNode;
+        }
+      }
+      return acc;
+    }, []);
+  }
+
+  values() {
+    return this.buckets.reduce((acc, list) => {
+      if (list) {
+        let i = 0;
+        let currentNode = list.firstNode;
+        while (i < list.size()) {
+          acc.push(currentNode.value.value);
+          i += 1;
+          currentNode = currentNode.nextNode;
+        }
+      }
+      return acc;
+    }, []);
   }
 }
 
@@ -81,8 +113,9 @@ const hashMap = new HashMap();
 
 hashMap.set("Sara", "Konor");
 
-console.log(
-  hashMap.buckets[hashMap.hash("Sara")].find(
-    (node) => node.value.key === "Sara",
-  ).value.value,
-);
+hashMap.set("raSa", "Konor");
+hashMap.set("Sara", "Loyd");
+hashMap.set("Marcus", "Cicero");
+hashMap.set("ramsuc", "Tullius");
+hashMap.set("Gaius", "Tullius");
+hashMap.keys();
