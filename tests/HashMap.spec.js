@@ -123,4 +123,19 @@ describe("HashMap", () => {
       expect(hashMap.has("raSa")).toEqual(true);
     });
   });
+
+  describe("length()", () => {
+    test("returns 0 if the map is empty", () => {
+      expect(hashMap.length()).toEqual(0);
+    });
+
+    test("returns a number of stored keys", () => {
+      hashMap.set("raSa", "Konor");
+      hashMap.set("Sara", "Loyd");
+      hashMap.set("Marcus", "Cicero");
+      hashMap.set("ramsuc", "Tullius");
+      hashMap.set("Gaius", "Tullius");
+      expect(hashMap.length()).toEqual(5);
+    });
+  });
 });

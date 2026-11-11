@@ -62,6 +62,15 @@ export class HashMap {
     }
     return false;
   }
+
+  length() {
+    return this.buckets.reduce((acc, list) => {
+        if(!list) {
+            return acc;
+        }
+        return acc + list.size();
+    }, 0);
+  }
 }
 
 const hashMap = new HashMap();
