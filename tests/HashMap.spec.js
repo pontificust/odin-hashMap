@@ -93,4 +93,18 @@ describe("HashMap", () => {
       expect(hashMap.get("Sara")).toEqual("Loyd");
     });
   });
+
+  describe("has(key)", () => {
+    test("returns false if the key is not found", () => {
+      hashMap.set("raSa", "Konor");
+      hashMap.set("Sara", "Loyd");
+      expect(hashMap.has("Karl")).toEqual(false);
+    });
+
+    test("returns true if the key is found", () => {
+      hashMap.set("raSa", "Konor");
+      hashMap.set("Sara", "Loyd");
+      expect(hashMap.has("Sara")).toEqual(true);
+    });
+  });
 });

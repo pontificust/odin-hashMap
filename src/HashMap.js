@@ -36,10 +36,18 @@ export class HashMap {
 
   get(key) {
     const targetList = this.buckets[this.hash(key)];
-    if(targetList){
-        return targetList.find(node => node.value.key === key)?.value.value;
+    if (targetList) {
+      return targetList.find((node) => node.value.key === key)?.value.value;
     }
     return;
+  }
+
+  has(key) {
+    const targetList = this.buckets[this.hash(key)];
+    if (targetList) {
+      return targetList.contains((node) => node.value.key === key);
+    }
+    return false;
   }
 }
 
@@ -47,4 +55,8 @@ const hashMap = new HashMap();
 
 hashMap.set("Sara", "Konor");
 
-console.log(hashMap.buckets[hashMap.hash("Sara")].find(node => node.value.key === "Sara").value.value);
+console.log(
+  hashMap.buckets[hashMap.hash("Sara")].find(
+    (node) => node.value.key === "Sara",
+  ).value.value,
+);
