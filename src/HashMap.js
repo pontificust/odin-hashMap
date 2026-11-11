@@ -1,6 +1,9 @@
+import { LinkedList } from "./LinkedList.js";
+
 export class HashMap {
 capacity = 16;
 loadFactor = 0.75;
+buckets = Array(this.capacity);
 
 hash(key) {
     let hashCode = 0;
@@ -13,5 +16,17 @@ hash(key) {
 
     return hashCode % this.capacity;
 }
+
+// set(key, value) {
+//     const index = this.hash(key);
+
+//     if(!this.buckets[index]){
+//         const list = new LinkedList();
+//         list.append({key, value});
+//         this.buckets[index] = list;
+//     } else {
+        
+//     }
+// }
 
 };

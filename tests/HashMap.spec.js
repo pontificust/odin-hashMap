@@ -29,6 +29,7 @@ describe("HashMap", () => {
         "Vergilius",
         "Marcus Tullius Cicero",
         "Laelia",
+        "asdfasdfaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaafwseasfsdfaasdffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
       ];
       inputs.forEach((input) => {
         const hashCode = hashMap.hash(input);
@@ -36,5 +37,9 @@ describe("HashMap", () => {
         expect(hashCode).toBeLessThanOrEqual(hashMap.capacity - 1);
       });
     });
+  });
+
+  describe("set(key, value)", () => {
+    
   });
 });
