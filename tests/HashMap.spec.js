@@ -138,4 +138,21 @@ describe("HashMap", () => {
       expect(hashMap.length()).toEqual(5);
     });
   });
+
+  describe("clear()", () => {
+    test("erases all entries", () => {
+      hashMap.set("raSa", "Konor");
+      hashMap.set("Sara", "Loyd");
+      hashMap.set("Marcus", "Cicero");
+      hashMap.set("ramsuc", "Tullius");
+      hashMap.set("Gaius", "Tullius");
+      hashMap.clear();
+      expect(hashMap.length()).toEqual(0);
+      expect(hashMap.has("Marcus")).toEqual(false);
+      expect(hashMap.has("raSa")).toEqual(false);
+      expect(hashMap.has("Sara")).toEqual(false);
+      expect(hashMap.has("ramsuc")).toEqual(false);
+      expect(hashMap.has("Gaius")).toEqual(false);
+    });
+  });
 });

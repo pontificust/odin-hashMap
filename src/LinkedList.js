@@ -198,4 +198,10 @@ export class LinkedList {
       this.lastNode = null;
     }
   }
+ 
+  clear() {
+    this.firstNode = null;
+    this.lastNode = null;
+    this.length = 0;
+  }
 }

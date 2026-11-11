@@ -71,6 +71,10 @@ export class HashMap {
         return acc + list.size();
     }, 0);
   }
+
+  clear() {
+    this.buckets = new Array(this.capacity);
+  }
 }
 
 const hashMap = new HashMap();
