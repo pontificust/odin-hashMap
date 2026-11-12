@@ -32,6 +32,15 @@ export class HashMap {
     } else {
       this.buckets[index].append({ key, value });
     }
+
+    if (this.capacity * this.loadFactor <= this.length()) {
+      this.capacity *= 2;
+      const entries = this.entries();
+      this.clear();
+      entries.forEach(({ key, value }) => {
+        this.set(key, value);
+      });
+    }
   }
 
   get(key) {
@@ -124,12 +133,3 @@ export class HashMap {
   }
 }
 
-const hashMap = new HashMap();
-
-hashMap.set("Sara", "Konor");
-
-hashMap.set("raSa", "Konor");
-hashMap.set("Sara", "Loyd");
-hashMap.set("Marcus", "Cicero");
-hashMap.set("ramsuc", "Tullius");
-hashMap.set("Gaius", "Tullius");

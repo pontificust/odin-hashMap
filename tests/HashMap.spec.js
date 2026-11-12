@@ -189,4 +189,25 @@ describe("HashMap", () => {
       ]));
     });
   });
+
+  describe("capacity growth logic", () => {
+    test("the capactiy of the map growth with the specific number of entries", () => {
+      hashMap.set("raSa", "Konor");
+      hashMap.set("Sara", "Loyd");
+      hashMap.set("Marcus", "Cicero");
+      hashMap.set("ramsuc", "Tullius");
+      hashMap.set("Gaius", "Tullius");
+      hashMap.set("asdfwae", "Konor");
+      hashMap.set("ffdgh", "Loyd");
+      hashMap.set("ghjk", "Cicero");
+      hashMap.set("nm,", "Tullius");
+      hashMap.set("tyutyu", "Tullius");
+      hashMap.set("456yt", "Konor");
+      hashMap.set("ewrewert", "Loyd");
+      hashMap.set("vccvb", "Cicero");
+      hashMap.set("zsasd", "Tullius");
+      hashMap.set("vbcv", "Tullius");
+      expect(hashMap.capacity).toEqual(32);
+    });
+  });
 });
